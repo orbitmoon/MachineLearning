@@ -20,12 +20,14 @@ grad = zeros(size(theta));
 % Note: grad should have the same dimensions as theta
 %
 
+% cost function J:
 z = X*theta;
 hX = sigmoid(z);
 temp = y.*log(hX)+(1-y).*log(1-hX);
 J = -(1/m)*(sum(temp(:)));
 
-
+% gradient of J:
+grad=(1/m)*(X'*(hX-y));
 
 
 
