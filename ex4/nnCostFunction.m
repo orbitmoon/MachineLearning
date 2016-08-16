@@ -92,8 +92,16 @@ reg = (lambda/(2*m))*(regTheta1 + regTheta2);
 
 J = JwithoutReg+reg;
 
+%backpropagation
+delta3 = a3 - y_v;
+delta2 = delta3*Theta2.*(a2.*(1-a2));
+Theta2_grad = delta3'*a2;
+delta2(:,1) = [];
+delta1 = delta2*Theta1.*(X.*(1-X));
+Theta1_grad = delta2'*X;
 
-
+Theta1_grad = Theta1_grad/m;
+Theta2_grad = Theta2_grad/m;
 
 % -------------------------------------------------------------
 
