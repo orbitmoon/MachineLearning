@@ -95,13 +95,19 @@ J = JwithoutReg+reg;
 %backpropagation
 delta3 = a3 - y_v;
 delta2 = delta3*Theta2.*(a2.*(1-a2));
-Theta2_grad = delta3'*a2;
+Delta2 = delta3'*a2;
 delta2(:,1) = [];
 delta1 = delta2*Theta1.*(X.*(1-X));
-Theta1_grad = delta2'*X;
+Delta1 = delta2'*X;
 
-Theta1_grad = Theta1_grad/m;
-Theta2_grad = Theta2_grad/m;
+regDelta1 = (lambda/m)*Theta1;
+regDelta1(:,1) = 0;
+
+regDelta2 = (lambda/m)*Theta2;
+regDelta2(:,1) = 0;
+
+Theta1_grad = Delta1/m + regDelta1;
+Theta2_grad = Delta2/m + regDelta2;
 
 % -------------------------------------------------------------
 
