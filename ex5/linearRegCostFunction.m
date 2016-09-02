@@ -22,7 +22,7 @@ grad = zeros(size(theta));
 HX = X*theta;
 
 %cost:
-J = (1/(2*m))*sum((HX-y).*(HX-y)) + (1/(2*m))*sum(theta(2:end,:).*theta(2:end,:));
+J = (1/(2*m))*sum((HX-y).*(HX-y)) + (lambda/(2*m))*sum(theta(2:end,:).*theta(2:end,:));
 
 
 %grad:
