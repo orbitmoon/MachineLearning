@@ -148,6 +148,3 @@ for i = 1:12
         D4b(j,i) = D4a(j,i)+D4a(j+25,i)+D4a(j+50,i)+D4a(j+75,i)+D4a(j+100,i)+D4a(j+125,i);
     end;
 end;
-
-
-
